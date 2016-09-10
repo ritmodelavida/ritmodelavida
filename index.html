@@ -676,15 +676,16 @@ getSunriseHour(yestDateNum), getSunriseMinute(yestDateNum));
       {rots:0,sca:2.0,tranx:-33,trany:0,disp1:'none',disp2:'none',disp3:'none',disp4:'block',disp5:'none'},
       {rots:360,sca:2.0,tranx:33,trany:0,disp1:'none',disp2:'none',disp3:'none',disp4:'none',disp5:'block'},
     ];
-    clockState.rots = phaseTransforms[Math.floor(clockState.secsDisp/5)%5].rots;
-    clockState.sca = phaseTransforms[Math.floor(clockState.secsDisp/5)%5].sca;
-    clockState.tranx = phaseTransforms[Math.floor(clockState.secsDisp/5)%5].tranx;
-    clockState.trany = phaseTransforms[Math.floor(clockState.secsDisp/5)%5].trany;
-    clockState.disp1 = phaseTransforms[Math.floor(clockState.secsDisp/5)%5].disp1;
-    clockState.disp2 = phaseTransforms[Math.floor(clockState.secsDisp/5)%5].disp2;
-    clockState.disp3 = phaseTransforms[Math.floor(clockState.secsDisp/5)%5].disp3;
-    clockState.disp4 = phaseTransforms[Math.floor(clockState.secsDisp/5)%5].disp4;
-    clockState.disp5 = phaseTransforms[Math.floor(clockState.secsDisp/5)%5].disp5;
+
+    clockState.rots = phaseTransforms[clockState.majorNum].rots;
+    clockState.sca = phaseTransforms[clockState.majorNum].sca;
+    clockState.tranx = phaseTransforms[clockState.majorNum].tranx;
+    clockState.trany = phaseTransforms[clockState.majorNum].trany;
+    clockState.disp1 = phaseTransforms[clockState.majorNum].disp1;
+    clockState.disp2 = phaseTransforms[clockState.majorNum].disp2;
+    clockState.disp3 = phaseTransforms[clockState.majorNum].disp3;
+    clockState.disp4 = phaseTransforms[clockState.majorNum].disp4;
+    clockState.disp5 = phaseTransforms[clockState.majorNum].disp5;
 
 
 
