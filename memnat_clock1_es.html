@@ -30,31 +30,12 @@ var Clock = React.createClass({
 		var node      = ReactDOM.findDOMNode(this)
 		,   get       = node.querySelector.bind(node)
 		,   parts     = node.querySelectorAll('canvas')
-//,   faceCtx   = get('.clockface').getContext('2d')
-//,   hourCtx   = get('.hourhand').getContext('2d')
-		//,   minCtx    = get('.minutehand').getContext('2d')
-		//,   secondCtx = get('.secondhand').getContext('2d')
-    ,   major     = get('.clock1')
+                ,   major     = get('.clock1')
 		,   width     = node.clientWidth
-    //,   myCanvas  = get('.myCanvas')
-    //,   myCanvasCtx = myCanvas.getContext('2d')
 		,   height    = node.clientHeight
-;
-major.width = 0;
-major.height = 0;
-
-	//	Array.prototype.forEach.call(parts, function (canvas) {
-	//		canvas.setAttribute('width', width);
-	//		canvas.setAttribute('height', height);
-	//	});
-
-//    var im = new Image();
-//    function drawCanvasImage() {
-//myCanvasCtx.drawImage(im, 0, 0);
-//};
-// im.addEventListener('load',drawCanvasImage,false);
-//    im.src = "img/Manifiesto_I_graynew_crop1_rot.jpg";
-
+        ;
+        major.width = 0;
+        major.height = 0;
 
 		// start with initial state base date
 		this.setBaseDate(this.state.baseDate);
@@ -657,8 +638,8 @@ sunriseDate = new Date(yesterday.getFullYear(), yesterday.getMonth(),
 yesterday.getDate(),
 getSunriseHour(yestDateNum), getSunriseMinute(yestDateNum));
     }
-  	//var sunrise = sunriseCalendar[dateNum];
-		clockState.sunriseHour = getSunriseHour(dateNum);
+
+    clockState.sunriseHour = getSunriseHour(dateNum);
     clockState.sunriseMinute = getSunriseMinute(dateNum);
     clockState.dateNum = dateNum;
     clockState.secsSinceDawn = Math.floor((newNow.valueOf() - sunriseDate.valueOf()) / 1000);
