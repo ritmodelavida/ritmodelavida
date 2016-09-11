@@ -32,7 +32,7 @@ var Clock = React.createClass({
 		return { baseDate: new Date(), hours: 0, mins: 0,
 	secs: 0, sunriseHour: 5, sunriseMinute: 56, rots: 0, sca: 1.0,
 tranx: 0, trany: 0,
-disp1: 'block', disp2: 'none', disp3: 'none', disp4: 'none', disp5: 'none',
+disp1: 'none', disp2: 'none', disp3: 'none', disp4: 'none', disp5: 'none',
 opac1: '1.0', opac2: '0.3', opac3: '0.3', opac4: '0.3', opac5: '0.3',
 };
 	},
@@ -62,7 +62,7 @@ opac1: '1.0', opac2: '0.3', opac3: '0.3', opac4: '0.3', opac5: '0.3',
 	setBaseDate: function (date) {
 		this.setState({ baseDate: date, sunriseHour: 0,
                   sunriseMinute: 0, dateNum: 0,
-                  disp1:'block',disp2:'none', disp3:'none', disp4:'none', disp5:'none',
+                  disp1:'none',disp2:'none', disp3:'none', disp4:'none', disp5:'none',
 opac1: '1.0', opac2: '0.3', opac3: '0.3', opac4: '0.3', opac5: '0.3',
 });
 		this.startTick = new Date(); // re-establish starting point
@@ -721,42 +721,42 @@ opac1: '0.3', opac2: '0.3', opac3: '0.3', opac4: '0.3', opac5: '1.0',
 			  opac5: this.state.opac5
 				}}>
 			  {({hours,mins,secs,disp1,disp2,disp3,disp4,disp5,opac1,opac2,opac3,opac4,opac5}) =>
-<div className="grid no-gutters">
-  <div className="unit whole">
-  <div className="unit one-fifth">
-    <img className="img" src="img/Akash.jpg"
+<div className="grid no-gutters image-component ">
+  <div className="unit whole center">
+  <div className="unit one-fifth center">
+    <img className="img major pull-right" src="img/Akash.jpg"
     alt="Image"
     style={{
     opacity: `${opac1}`,
     }}
     />
   </div>
-  <div className="unit one-fifth">
-    <img className="img" src="img/vayuRecrop.jpg"
+  <div className="unit one-fifth center">
+    <img className="img major pull-right" src="img/vayuRecrop.jpg"
     alt="Image" 
     style={{
     opacity: `${opac2}`,
     }}
     />
   </div>
-  <div className="unit one-fifth">
-    <img className="img" src="img/tejas.jpg"
+  <div className="unit one-fifth center">
+    <img className="img major" src="img/tejas.jpg"
     alt="Image" 
     style={{
     opacity: `${opac3}`,
     }}
     />
   </div>
-  <div className="unit one-fifth">
-    <img className="img" src="img/prithvi.jpg"
+  <div className="unit one-fifth center">
+    <img className="img major pull-left" src="img/prithvi.jpg"
     alt="Image" 
     style={{
     opacity: `${opac4}`,
     }}
     />
   </div>
-  <div className="unit one-fifth">
-    <img className="img" src="img/apas.jpg"
+  <div className="unit one-fifth center">
+    <img className="img major pull-left" src="img/apas.jpg"
     alt="Image" 
     style={{
     opacity: `${opac5}`,
@@ -766,31 +766,31 @@ opac1: '0.3', opac2: '0.3', opac3: '0.3', opac4: '0.3', opac5: '1.0',
 </div>
 
   <div className="unit whole center">
-    <img className="img" src="img/Akash.jpg"
+    <img className="img major" src="img/Akash.jpg"
     alt="Image" 
     style={{
     display: `${disp1}`,
     }}
     />
-    <img className="img" src="img/vayuRecrop.jpg"
+    <img className="img major" src="img/vayuRecrop.jpg"
     alt="Image" 
     style={{
     display: `${disp2}`,
     }}
     />
-    <img className="img" src="img/tejas.jpg"
+    <img className="img major" src="img/tejas.jpg"
     alt="Image" 
     style={{
     display: `${disp3}`,
     }}
     />
-    <img className="img" src="img/prithvi.jpg"
+    <img className="img major" src="img/prithvi.jpg"
     alt="Image" 
     style={{
     display: `${disp4}`,
     }}
     />
-    <img className="img" src="img/apas.jpg"
+    <img className="img major" src="img/apas.jpg"
     alt="Image" 
     style={{
     display: `${disp5}`,
@@ -806,7 +806,8 @@ opac1: '0.3', opac2: '0.3', opac3: '0.3', opac4: '0.3', opac5: '1.0',
 			  Hora: {this.format(this.state.hoursDisp%12 +
 			this.state.pmPlus)}:{this.format(this.state.minsDisp%60)}:{this.format(this.state.secsDisp%60)}
 		&nbsp; Alba: {this.state.sunriseHour%12}:
-			  {this.format(this.state.sunriseMinute%60)} &nbsp;
+			  {this.format(this.state.sunriseMinute%60)}
+    &nbsp; <p></p>
 			  Mayor: {this.state.majorName} &nbsp; Menor: {this.state.minorName}&nbsp;
         </div>
 
@@ -828,7 +829,7 @@ var ClockExample = React.createClass({
 	},
 	render: function () {
 		return (
-			<div className="clock-example">
+			<div className="clock-example center">
 
 			<Clock hours={this.state.hours} mins={this.state.mins} secs={this.state.secs}/>
 
@@ -853,9 +854,11 @@ ReactDOM.render(<ClockExample />, document.getElementById('app'));
   por Diógenes Ballester
 </div>
 
-
-<div class="unit center" id="app"></div>
-
+<div class="grid">
+  <div class="unit one-fifth center"></div>
+<div class="unit three-fifths center" id="app"></div>
+  <div class="unit one-fifth center"></div>
+</div>
 
 <div class="unit whole center">
   <nav>

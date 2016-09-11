@@ -85,6 +85,13 @@ p.p8 {margin: 0% 4% 0% 4%;}
     justify-content: space-between;
 }
 
+.image-component {
+    position: relative;
+    /*width: 100%;
+    height: 100%;*/
+    margin: 0px;
+    transform: scale(1,1);
+}
 .clock-component {
     position: relative;
     /*width: 100%;
