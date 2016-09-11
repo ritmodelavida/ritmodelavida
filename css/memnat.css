@@ -10,9 +10,10 @@ img {
     max-width: 100%;
     height: auto;
   display: block;
-  margin: 0px;
-  border-radius: 5px 5px 5px 5px;
-  border-width: 0px;
+  margin: 0 auto 0 auto;
+  border-radius: 4px 4px 4px 4px;
+  border: 0;
+  padding: 0;
   /*-webkit-background-clip: content-box;
   background-clip: content-box;*/
   /* 1292 x 1273 */ /* ipad is 2048 x 1536 */
