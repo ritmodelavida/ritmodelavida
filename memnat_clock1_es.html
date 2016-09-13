@@ -24,7 +24,10 @@ var Clock = React.createClass({
 	getInitialState: function () {
 		return { baseDate: new Date(), hours: 0, mins: 0,
 	secs: 0, sunriseHour: 5, sunriseMinute: 56, rots: 0, sca: 1.0,
-    tranx: 0, trany: 0, disp1: 'block', disp2: 'none', disp3: 'none', disp4: 'none', disp5: 'none' };
+    tranx: 0, trany: 0, disp1: 'block', disp2: 'none', disp3: 'none',
+disp4: 'none', disp5: 'none',
+clocktext:'', clocklink:''
+};
 	},
 	componentDidMount: function () {
 		var node      = ReactDOM.findDOMNode(this)
@@ -668,6 +671,33 @@ getSunriseHour(yestDateNum), getSunriseMinute(yestDateNum));
     clockState.disp4 = phaseTransforms[clockState.majorNum].disp4;
     clockState.disp5 = phaseTransforms[clockState.majorNum].disp5;
 
+var clockTexts = [
+'Akash, el elemento de éter, simbolizado por un óvalo negro o azul \
+índigo representa el centro de la instalación que corresponde a  la \
+pintura titulada “Manifiesto de un arteologista” desplegada en el piso \
+del museo debajo de la claraboya.',
+'Vayu, el elemento aire, simbolizado por un círculo de color azul \
+turquesa  corresponde a  la pintura “Vayú / Respirando” desplegada en \
+la pared norte de la instalación.',
+'Tejas, el elemento del fuego, simbolizado por un triángulo rojo, que \
+representa la electricidad, corresponde a la pintura titulada \
+“Archivos Akáshicos” desplegada en la pared sur de la instalación.',
+'Prithvi, el elemento tierra, simbolizado por un cuadrado amarillo, \
+que representa la realización, corresponde a la pintura “Pensamiento \
+Taíno” desplegada en la pared este de la instalación.',
+'Apas, el elemento del agua, simbolizado por la luna creciente blanca, \
+que representa las emociones y el magnetismo,corresponde a la pintura \
+“Punto de origen” desplegada en la pared oeste de la instalación.',
+];
+    clockState.clocktext = clockTexts[clockState.majorNum];
+var clockLinks = [
+'memnat_art_es.html#akash',
+'memnat_art_es.html#vayu',
+'memnat_art_es.html#tejas',
+'memnat_art_es.html#prithvi',
+'memnat_art_es.html#apas',
+];
+    clockState.clocklink = clockLinks[clockState.majorNum];
 
 		this.setState(clockState);
 		window.requestAnimationFrame(this.tick); // resume updates at 60fps
@@ -696,9 +726,11 @@ getSunriseHour(yestDateNum), getSunriseMinute(yestDateNum));
 			  disp2: this.state.disp2,
 			  disp3: this.state.disp3,
 			  disp4: this.state.disp4,
-			  disp5: this.state.disp5
+			  disp5: this.state.disp5,
+			  clocketxt: this.state.clocktext,
+			  clocklink: this.state.clocklink
 				}}>
-				{({hours,mins,secs,rots,sca,tranx,trany,disp1,disp2,disp3,disp4,disp5}) =>
+				{({hours,mins,secs,rots,sca,tranx,trany,disp1,disp2,disp3,disp4,disp5,clocktext}) =>
 					<div className="hands center">
 					  <img ref="clock1" className="clock1"
 		src="img/Manifiesto_I_graynew_crop1_rot.jpg"
@@ -753,6 +785,24 @@ getSunriseHour(yestDateNum), getSunriseMinute(yestDateNum));
         {this.format(this.state.sunriseMinute%60)} Mayor: {this.state.majorName} Menor: {this.state.minorName}
         </div>
 
+	<div className="unit whole left">
+	  <p className="">{this.state.clocktext} <a href={this.state.clocklink}>ENLAZAR</a>
+	  </p>
+	  <p className="">
+	  Cada Tattwa  se cree que es la principal fuerza vibratoria
+	  de la energía en la tierra durante 24 minutos en su
+	  rotación durante todo el día. El reloj digital universal en
+	  esta página está sincronizado con las imágenes de las
+	  figuras en las bicicletas representadas en  la pintura
+	  desplegada en el piso del museo. A medida que los Tattwas se
+	  mueven de una energía a la siguiente, según lo medido por el
+	  reloj universal, la imagen en la página gira e indica la
+	  dirección del Tattwa como la fuerza principal de energía
+	  durante este periodo de tiempo y centraliza su atención
+	  hacia la dirección y la pintura correspondiente que para el
+	  artista es un símbolo de este Tattwa.
+	  </p>
+	</div>
 			</div>
 		);
 	}

@@ -24,7 +24,9 @@ var Clock = React.createClass({
 	getInitialState: function () {
 		return { baseDate: new Date(), hours: 0, mins: 0,
 	secs: 0, sunriseHour: 5, sunriseMinute: 56, rots: 0, sca: 1.0,
-    tranx: 0, trany: 0, disp1: 'block', disp2: 'none', disp3: 'none', disp4: 'none', disp5: 'none' };
+    tranx: 0, trany: 0, disp1: 'block', disp2: 'none', disp3: 'none',
+disp4: 'none', disp5: 'none', clocktext:'', clocklink:''
+};
 	},
 	componentDidMount: function () {
 		var node      = ReactDOM.findDOMNode(this)
@@ -668,7 +670,22 @@ getSunriseHour(yestDateNum), getSunriseMinute(yestDateNum));
     clockState.disp4 = phaseTransforms[clockState.majorNum].disp4;
     clockState.disp5 = phaseTransforms[clockState.majorNum].disp5;
 
-
+var clockTexts = [
+'Akash, the element of ether, symbolized by a black or indigo blue oval, which represents the center, corresponds to the painting titled “Manifesto of an Arteologist” on the floor bellow the skylight.',
+'Vayu, the air element, symbolized by a turquoise circle corresponds with the painting “Vayu / Respirando” on the north wall of the installation.',
+'Tejas, the element of fire, symbolized by a red triangle, which represents electricity, corresponds to the painting titled “Akashic Archieves” on the south wall.',
+'Prithvi, the earth element, symbolized by a yellow square, which represents realization corresponds to the painting “Taino Thought” on east wall.',
+'Apas, the element of water, symbolized by the white crescent moon, which represents emotions and magnetism corresponds to the painting “Point of Origin” on the west wall.'
+];
+    clockState.clocktext = clockTexts[clockState.majorNum];
+var clockLinks = [
+'memnat_art_en.html#akash',
+'memnat_art_en.html#vayu',
+'memnat_art_en.html#tejas',
+'memnat_art_en.html#prithvi',
+'memnat_art_en.html#apas'
+];
+    clockState.clocklink = clockLinks[clockState.majorNum];
 
 		this.setState(clockState);
 		window.requestAnimationFrame(this.tick); // resume updates at 60fps
@@ -697,9 +714,11 @@ getSunriseHour(yestDateNum), getSunriseMinute(yestDateNum));
 			  disp2: this.state.disp2,
 			  disp3: this.state.disp3,
 			  disp4: this.state.disp4,
-			  disp5: this.state.disp5
+			  disp5: this.state.disp5,
+			  clocktext: this.state.clocktext,
+			  clocklink: this.state.clocklink
 				}}>
-				{({hours,mins,secs,rots,sca,tranx,trany,disp1,disp2,disp3,disp4,disp5}) =>
+				{({hours,mins,secs,rots,sca,tranx,trany,disp1,disp2,disp3,disp4,disp5,clocktext}) =>
 					<div className="hands center">
 					  <img ref="clock1" className="clock1"
 		src="img/Manifiesto_I_graynew_crop1_rot.jpg"
@@ -745,7 +764,7 @@ getSunriseHour(yestDateNum), getSunriseMinute(yestDateNum));
 		}
 					</Motion>
 					
-				<div className="unit whole center"></div>
+
 			<div className="unit whole center sunrise ztop">
 			  Date: {this.format(this.state.dateNum)}&nbsp;
 			  Time: {this.format(this.state.hoursDisp%12 +
@@ -753,7 +772,11 @@ getSunriseHour(yestDateNum), getSunriseMinute(yestDateNum));
 		&nbsp; Dawn: {this.state.sunriseHour%12}:
         {this.format(this.state.sunriseMinute%60)} Major: {this.state.majorName} Minor: {this.state.minorName}
         </div>
-
+	<div className="unit whole left">
+	  <p className="" >{this.state.clocktext} <a href={this.state.clocklink}>LINK</a>
+	  </p>
+<p className="">Each Tattwa is believed to be the major vibrating force of energy on the earth for 24 minutes in rotation through out the day. The universal digital clock on this page is synchronized with images of the figures on bikes replicated from the floor painting. As the Tattwa moves from one energy to the next, as measured by the universal clock, the image on is page rotates and lights up to indicate the Tattwas that is the major energy force during this time frame and focus your attention towards the direction and painting that to the artist is symbolic of that Tattwa.</p>
+	</div>
 			</div>
 		);
 	}
