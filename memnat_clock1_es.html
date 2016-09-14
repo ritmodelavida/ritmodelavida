@@ -674,22 +674,36 @@ getSunriseHour(yestDateNum), getSunriseMinute(yestDateNum));
 var clockTexts = [
 'Akash, el elemento de éter, simbolizado por un óvalo negro o azul \
 índigo representa el centro de la instalación que corresponde a  la \
-pintura titulada “Manifiesto de un arteologista” desplegada en el piso \
-del museo debajo de la claraboya.',
+pintura titulada',
 'Vayu, el elemento aire, simbolizado por un círculo de color azul \
-turquesa  corresponde a  la pintura “Vayú / Respirando” desplegada en \
-la pared norte de la instalación.',
+turquesa  corresponde a  la pintura',
 'Tejas, el elemento del fuego, simbolizado por un triángulo rojo, que \
-representa la electricidad, corresponde a la pintura titulada \
-“Archivos Akáshicos” desplegada en la pared sur de la instalación.',
+representa la electricidad, corresponde a la pintura titulada',
 'Prithvi, el elemento tierra, simbolizado por un cuadrado amarillo, \
-que representa la realización, corresponde a la pintura “Pensamiento \
-Taíno” desplegada en la pared este de la instalación.',
+que representa la realización, corresponde a la pintura',
 'Apas, el elemento del agua, simbolizado por la luna creciente blanca, \
-que representa las emociones y el magnetismo,corresponde a la pintura \
-“Punto de origen” desplegada en la pared oeste de la instalación.',
+que representa las emociones y el magnetismo,corresponde a la pintura',
 ];
     clockState.clocktext = clockTexts[clockState.majorNum];
+
+var linkTexts = [
+'“Manifiesto de un arteologista”',
+'“Vayú / Respirando”',
+'“Archivos Akáshicos”',
+'“Pensamiento Taíno”',
+'“Punto de origen”'
+];
+    clockState.linktext = linkTexts[clockState.majorNum];
+
+var clockTexts2 = [
+'desplegada en el piso del museo debajo de la claraboya.',
+'desplegada en la pared norte de la instalación.',
+'desplegada en la pared sur de la instalación.',
+'desplegada en la pared este de la instalación.',
+'desplegada en la pared oeste de la instalación.'
+];
+    clockState.clocktext2 = clockTexts2[clockState.majorNum];
+
 var clockLinks = [
 'memnat_art_es.html#akash',
 'memnat_art_es.html#vayu',
@@ -728,7 +742,9 @@ var clockLinks = [
 			  disp4: this.state.disp4,
 			  disp5: this.state.disp5,
 			  clocketxt: this.state.clocktext,
-			  clocklink: this.state.clocklink
+			  clocklink: this.state.clocklink,
+			  linktext: this.state.linktext,
+			  clocktext2: this.state.clocktext2
 				}}>
 				{({hours,mins,secs,rots,sca,tranx,trany,disp1,disp2,disp3,disp4,disp5,clocktext}) =>
 					<div className="hands center">
@@ -786,7 +802,8 @@ var clockLinks = [
         </div>
 
 	<div className="unit whole left">
-	  <p className="">{this.state.clocktext} <a href={this.state.clocklink}>ENLAZAR</a>
+	  <p className="">{this.state.clocktext} &nbsp;
+	  <a href={this.state.clocklink}>{this.state.linktext}</a> {this.state.clocktext2}
 	  </p>
 	  <p className="">
 	  Cada Tattwa  se cree que es la principal fuerza vibratoria
