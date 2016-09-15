@@ -688,6 +688,52 @@ opac1: '0.3', opac2: '0.3', opac3: '0.3', opac4: '0.3', opac5: '1.0',
     clockState.opac4 = phaseTransforms[clockState.minorNum].opac4;
     clockState.opac5 = phaseTransforms[clockState.minorNum].opac5;
 
+var linkTexts = [
+'“Manifiesto de un arteologista”',
+'“Vayú / Respirando”',
+'“Archivos Akáshicos”',
+'“Pensamiento Taíno”',
+'“Punto de origen”'
+];
+    clockState.linktextMajor = linkTexts[clockState.majorNum];
+    clockState.linktextMinor = linkTexts[clockState.minorNum];
+
+var clockTexts2 = [
+'desplegada en el piso del museo debajo de la claraboya.',
+'desplegada en la pared norte de la instalación.',
+'desplegada en la pared sur de la instalación.',
+'desplegada en la pared este de la instalación.',
+'desplegada en la pared oeste de la instalación.'
+];
+    clockState.clocktext2Major = clockTexts2[clockState.majorNum];
+    clockState.clocktext2Minor = clockTexts2[clockState.minorNum];
+
+var clockLinks = [
+'memnat_art_es.html#akash',
+'memnat_art_es.html#vayu',
+'memnat_art_es.html#tejas',
+'memnat_art_es.html#prithvi',
+'memnat_art_es.html#apas',
+];
+    clockState.clocklinkMajor = clockLinks[clockState.majorNum];
+    clockState.clocklinkMinor = clockLinks[clockState.minorNum];
+
+var majorTexts = [
+'Tattwa mayor - Akash, el elemento de éter, simbolizado por un óvalo negro o azul índigo representa el centro de la instalación que corresponde a  la pintura titulada',
+'Tattwa mayor - Vayu, el elemento aire, simbolizado por un círculo de color azul turquesa  corresponde a  la pintura titulada',
+'Tattwa mayor - Tejas, el elemento del fuego, simbolizado por un triángulo rojo, que representa la electricidad, corresponde a la pintura titulada',
+'Tattwa mayor - Prithvi, el elemento tierra, simbolizado por un cuadrado amarillo, que representa la realización, corresponde a la pintura titulada',
+'Tattwa mayor -  Apas, el elemento del agua, simbolizado por la luna creciente blanca, que representa las emociones y el magnetismo, corresponde a la pintura titulada'
+];
+    clockState.majorText = majorTexts[clockState.majorNum];
+var minorTexts = [
+'Tattwa menor  - Akash, el elemento de éter, simbolizado por un óvalo negro o azul índigo representa el centro de la instalación que corresponde a  la pintura titulada',
+'Tattwa menor - Vayu, el elemento aire, simbolizado por un círculo de color azul turquesa  corresponde a  la pintura titulada',
+'Tattwa menor - Tejas, el elemento del fuego, simbolizado por un triángulo rojo, que representa la electricidad, corresponde a la pintura titulada',
+'Tattwa menor - Prithvi, el elemento tierra, simbolizado por un cuadrado amarillo, que representa la realización, corresponde a la pintura titulada',
+'Tattwa menor -  Apas, el elemento del agua, simbolizado por la luna creciente blanca, que representa las emociones y el magnetismo, corresponde a la pintura titulada'
+];
+    clockState.minorText = minorTexts[clockState.minorNum];
 
 
 		this.setState(clockState);
@@ -807,9 +853,21 @@ opac1: '0.3', opac2: '0.3', opac3: '0.3', opac4: '0.3', opac5: '1.0',
 			this.state.pmPlus)}:{this.format(this.state.minsDisp%60)}:{this.format(this.state.secsDisp%60)}
 		&nbsp; Alba: {this.state.sunriseHour%12}:
 			  {this.format(this.state.sunriseMinute%60)}
-    &nbsp; <p></p>
+    &nbsp; 
 			  Mayor: {this.state.majorName} &nbsp; Menor: {this.state.minorName}&nbsp;
         </div>
+
+	<div className="unit whole left">{this.state.majorText}&nbsp;
+	  <a
+	  href={this.state.clocklinkMajor}>{this.state.linktextMajor}</a>&nbsp;
+	  {this.state.clocktext2Major}
+	</div>
+	<div className="unit whole left">{this.state.minorText}&nbsp;
+	  <a
+	  href={this.state.clocklinkMinor}>{this.state.linktextMinor}</a>&nbsp;
+	  {this.state.clocktext2Minor}
+	</div>
+
 
 			</div>
 		);
@@ -870,7 +928,6 @@ ReactDOM.render(<ClockExample />, document.getElementById('app'));
   manera que hay cinco rotaciones de vibraciones de los Tattwas
   mayores cada dos horas  y veinticinco variaciones de las vibraciones
   de los mayores y menores combinados cada 2 horas (120 minutos).
- Ver a el reloj digital universal 1 para la explicación de cada uno de los Tattwas.
     <p>
     <p className="p8">
   Las imágenes de esta página, conectadas  al reloj universal digital
