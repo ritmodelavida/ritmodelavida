@@ -718,19 +718,19 @@ var clockTexts2 = [
     clockState.clocktext2Minor = clockTexts2[clockState.minorNum];
 
 var majorTexts = [
-'Major Tattwa - Akash, the element of ether, symbolized by a black or indigo blue oval, which represents the center, corresponds to the painting titled',
-'Major Tattwa - Vayu, the air element, symbolized by a turquoise circle, corresponds to the painting titled',
-'Major Tattwa - Tejas, the element of fire, symbolized by a red triangle, which represents electricity, corresponds to the painting titled',
-'Major Tattwa - Prithvi, the earth element, symbolized by a yellow square, which represents realization, corresponds to the painting titled',
-'Major Tattwa - Apas, the element of water, symbolized by the white crescent moon, which represents emotions and magnetism, corresponds to the painting titled'
+'Major Tattwa - Akash, the element of ether, symbolized by a black or indigo blue oval, which incorporates all of the other tattwas.',
+'Major Tattwa - Vayu, the air element, symbolized by a turquoise circle, which represents unity.',
+'Major Tattwa - Tejas, the element of fire, symbolized by a red triangle, which represents energy, electricity and  perception.',
+'Major Tattwa - Prithvi, the earth element, symbolized by a yellow square, which represents realization.',
+'Major Tattwa - Apas, the element of water, symbolized by the white crescent moon, which represents emotions and magnetism.'
 ];
     clockState.majorText = majorTexts[clockState.majorNum];
 var minorTexts = [
-'Minor Tattwa - Akash, the element of ether, symbolized by a black or indigo blue oval, which represents the center, corresponds to the painting titled',
-'Minor Tattwa - Vayu, the air element, symbolized by a turquoise circle, corresponds to the painting titled',
-'Minor Tattwa - Tejas, the element of fire, symbolized by a red triangle, which represents electricity, corresponds to the painting titled',
-'Minor Tattwa-  Prithvi, the earth element, symbolized by a yellow square, which represents realization, corresponds to the painting titled',
-'Minor Tattwa - Apas, the element of water, symbolized by the white crescent moon, which represents emotions and magnetism corresponds to the painting titled'
+'Minor Tattwa - Akash, the element of ether, symbolized by a black or indigo blue oval, which incorporates all of the other tattwas.',
+'Minor Tattwa - Vayu, the air element, symbolized by a turquoise circle, which represents unity.',
+'Minor Tattwa - Tejas, the element of fire, symbolized by a red triangle, which represents energy, electricity and  perception.',
+'Minor Tattwa - Prithvi, the earth element, symbolized by a yellow square, which represents realization.',
+'Minor Tattwa - Apas, the element of water, symbolized by the white crescent moon, which represents emotions and magnetism.'
 ];
     clockState.minorText = minorTexts[clockState.minorNum];
 
@@ -856,13 +856,9 @@ var minorTexts = [
 			  Major: {this.state.majorName} &nbsp; Minor: {this.state.minorName}&nbsp;
         </div>
 
-	<div className="unit whole left">{this.state.majorText}&nbsp;
-	  <a
-	  href={this.state.clocklinkMajor}>{this.state.linktextMajor}</a> {this.state.clocktext2Major}
+	<div className="unit whole left">{this.state.majorText}
 	</div>
-<div className="unit whole left">{this.state.minorText}&nbsp;
-	  <a
-	  href={this.state.clocklinkMinor}>{this.state.linktextMinor}</a> {this.state.clocktext2Minor}
+<div className="unit whole left">{this.state.minorText}
 </div>
 </div>
 		);
